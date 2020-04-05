@@ -1,0 +1,172 @@
+@@ -0,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="jquery.color.js"></script>
+    <style type="text/css">
+        #header{
+            position:relative;
+            width:100%;
+            height:25px;
+            background-color: gray;
+            color:white;
+            border-radius:5px;
+        }
+        #header span:first-child{
+            float:left;
+        }
+        #header span:nth-child(2){
+            float:right;
+            position:absolute;
+            right:5px;
+        }
+        #main{
+            position:relative;
+            background-color: cadetblue;
+            width:100%;
+            height:700px;
+            text-align:center;
+        }
+        #search{
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:300px;
+            height:50px;
+            margin-top: -25px;
+            margin-left:-150px;
+        }
+         #table-wrapper{
+            display:none;
+            position:absolute;
+            top:70%;
+            left:50%;
+            width:800px;
+            height:200px;
+            margin-top: -100px;
+            margin-left:-400px;
+            border:1px solid gray;
+            text-align:center;
+        }
+        #table-wrapper ul:first-child{
+            font-weight: bold;
+        }
+        #table-wrapper ul{
+            display:table-row;
+            font:"微软雅黑" 30px;
+            /* border:1px solid gray; */
+            /*设置垂直对齐*/
+            vertical-align: middle;
+            width:500px;
+        }
+        #table-wrapper li{
+            display:table-cell;
+            table-layout: fixed; 
+            padding:10px;
+            width:160px;
+            /* border:1px solid gray; */
+            vertical-align: middle;
+        } 
+        #footer{
+            text-align:center;
+        }
+        #footer li{
+            display:inline;
+        }
+        #footer li+li{
+           padding:0 5px;
+           border-left:1px solid black;
+       }
+       #back-to-top{
+           display:none;
+           position:fixed;
+           bottom:10px;
+           right:10px;
+           width:40px;
+           height:40px; 
+           padding:0px 2px 4px 2px;
+           border:1px solid yellow;
+           color:yellow;
+           background-color: purple;
+           text-align:center;
+           vertical-align: middle;
+       } 
+    </style>
+    <script type="text/javascript">
+    $(function(){
+        var str = $("#txt").val();
+        $("#txt").hover(function(){
+            if($(this).val() == str){
+                $(this).val("");
+            }
+        },function(){
+            if($(this).val() == ""){
+                $(this).val(str);
+            }
+        })
+    $("#btn2").click(function(){
+        if($(this).val() == "显示图表"){
+            $("#table-wrapper").fadeIn(200);
+            $(this).val("隐藏图表");
+        }else if($(this).val() == "隐藏图表"){
+            $("#table-wrapper").fadeOut(200);
+            $(this).val("显示图表");
+    }
+    })
+
+    //滚动条高度到一定程度时才会出现回到顶部
+    var top = $("#search").offset().top;
+    top = top/3;
+    // alert(top);
+    $(window).scroll(function(){
+        if($(this).scrollTop() > top){
+            $("#back-to-top").fadeIn(200);
+        }else if($(this).scrollTop() < top){
+            $("#back-to-top").fadeOut(200);
+        }
+    })
+
+    //点击后回到顶部
+    $("#back-to-top").click(function(){
+        $("html,body").scrollTop(0);
+
+    })
+    })
+    </script>
+</head>
+<body>
+    <div id="header"><span>苏州 换肤 消息 显示消息</span><span>新闻 hao123 视频 地图 贴吧</span></div>
+    <div id="main">
+        <div id="search"><input id="txt" type="text" value="请输入搜索内容"/><input id="btn" type="button" value="百度一下"></div>
+        <!--下面是自动均分元素实现的图表-->
+        <div id="table-wrapper">
+            <ul>
+                <li>我的关注</li>
+                <li>推荐</li>
+            </ul>
+            <ul>
+                <li><img src="pics/baidulogo.png" alt=""/></li>
+                <li>天猫</li>
+                <li>搜狐</li>
+                <li>今日头条</li>
+                <li>美团</li>
+            </ul>
+        </div>
+       
+    </div>
+        <input type="button" id="btn2" value="显示图表">
+         <!--下面是中间有分割线的footer-->
+            <ul id="footer">
+                <li>关于我们</li>
+                <li>联系我们</li>
+                <li>版权声明</li>
+                <li>意见反馈</li>
+            </ul>
+    <div id="back-to-top">回到顶部</div>
+</body>
+</html>
+\ No newline at end of file

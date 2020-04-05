@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<div >, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    #main{
+        position:relative;
+        height:720px;
+    }
+    #wrapper{
+        position:relative;
+        margin-left:-135px;/*注意是270/2*/
+        margin-top:-135px;
+        top:50%;
+        left:50%;
+        width:200px;
+        height:200px;
+        padding:35px;
+        background-color:gold;
+        /* font-size:14px; */
+        color:green;
+        border:1px solid black;
+        text-align:center;
+    }
+    #triangle{
+        position:absolute;
+        top:50%;
+        left:270px;/*注意是2*padding+width*/
+        margin-top:-20px;
+        width:0;
+        height:0;
+        border-width:20px;
+        border-style: solid;
+        border-color:transparent transparent transparent black;
+    }
+    
+    #triangle div{
+        position:absolute;
+        top:-19px;
+        left:-20px;
+        width:0;
+        height:0;
+        border-width:19px;
+        border-style: solid;
+        border-color:transparent transparent transparent gold;
+    }
+    /* p{
+        vertical-align:middle;
+    } */
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="wrapper">
+            <div id="triangle">
+                <div>
+                </div>
+            </div>
+            bjyx is rio.
+        </div>
+    </div>
+</body>
+</html>

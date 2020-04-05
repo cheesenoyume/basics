@@ -1,0 +1,93 @@
+@@ -0,0 +1,91 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+      #wrapper{
+          width:500px;
+          height:700px;
+          overflow: hidden;
+          position:relative;/*易错点*/
+      }
+      #back_top{
+          position:fixed;
+          display:none;
+          width: 50px;
+          height:50px;
+          right:5px;
+          bottom:10px;
+          background-color: yellow;
+          color:purple;
+      }
+      #img1{
+          height:200px;
+          width:500px
+      }
+      #img2{
+          width:500px;
+          height:700px;
+      }
+      #lett{
+          position:absolute;/*易错点，必须是div*/
+          background-color: gray;
+          font-size: 12px;
+          color:white;
+          /*display:block;*/
+          line-height: 28px;
+          height:28px;
+          bottom:-28px;
+          width:500px;
+      }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="jquery.color.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var img_top = $("#img2").offset().top;
+            $(window).scroll(function(){ //别忘了$(window).scroll
+                //如果下拉超过img2到顶部的距离，返回顶部标识才出现
+                if($(window).scrollTop() > img_top){
+                $("#back_top").fadeIn(200);
+            }else{
+                $("#back_top").fadeOut(200);
+            }
+            })
+
+          $("#back_top").click(function(){
+            //点击按钮回顶部
+            $("html,body").animate({"scrollTop":"0px"},500);
+          })
+
+          $("#wrapper").hover(function(){
+              //鼠标移入
+              if(!$("#lett",this).is(":animated")){
+                  //标语出现，图片淡到80%
+                $("#lett",this).animate({"bottom":"0px","background-color":"red"},300);
+                $("#img2").fadeTo(300,0.8);
+              }
+
+          },function(){
+              //鼠标移出
+              if(!$("#lett",this).is(":animated")){
+                $("#lett",this).animate({"bottom":"-28px","background-color":"gray"},300);
+                $("#img2").fadeTo(300,1);
+              }
+
+          })
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <img id="img1" src="IMG2.jPG" alt=""/>
+        <hr/>
+        <div id="wrapper">
+            <img id="img2" src="IMG1.jpg" alt=""/>
+            <div id="lett">博君一肖是真的</div>
+        </div>
+        <div id="back_top">点击回到顶部</div>
+    </div>
+</body>
+</html>
+\ No newline at end of file

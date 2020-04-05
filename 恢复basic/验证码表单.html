@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    #wrapper{
+        position:relative;
+        height:700px;
+    }
+    #register{
+        position:absolute;
+        /* display:inline-block; */
+        top:50%;
+        left:50%; 
+        width:320px;
+        height:160px;
+        margin-top:-80px;
+        margin-left:-160px;
+        border:1px solid gray;
+        /* padding:0;
+        margin:0; */
+        overflow:hidden;
+    }
+    label{
+        float:left;
+        width:60px;
+        height:40px;
+        margin-right:10px;
+        text-align:right;
+        line-height:40px;
+    }
+    p input:not(#submit){
+        float:left;
+        height:16px;
+        border:1px solid gray;
+        margin:12px 10px;
+    }
+    #tel,#psw{
+        width:228px;
+        /* vertical-align:middle; */
+    }
+    #verify-code{
+        width:118px;
+        margin-right:10px;
+        /* vertical-align:middle; */
+    }
+    #submit{
+        width:100px;
+        height:40px;
+        border:1px solid gray;
+        padding:0;
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="register">
+            <p><label for="tel">手机号</label><input id="tel" type="text" value="请输入手机号"></p>
+            <p><label for="psw">密码</label><input id="psw" type="password" value="密码"></p>
+            <p><label for="verify-code">验证码</label><input id="verify-code" type="text" value="验证码"><input id="submit" type="submit" value="获取短信验证码"></p>
+        </div>
+    </div>
+</body>
+</html>

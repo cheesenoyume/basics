@@ -1,0 +1,295 @@
+@@ -0,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    /* body::after{
+        clear:both;
+        content:"";
+        display:block;
+        height:0;
+        visibility: hidden;
+    } */
+    #page-left{
+        position:relative;
+        float:left;
+        width:800px;
+        height:1000px;
+        border:1px solid blue;
+        /* background-color: blue; */
+    }
+    #page-right{
+        height:1000px;
+        border:1px solid red;
+        display:table-cell;
+    }
+    #rectangle{
+        /*设置垂直居中*/
+        display:table-cell;
+        vertical-align: middle;
+        /*设置父相对子绝对*/
+        position:absolute;
+        top:10%;
+        left:50%;
+        margin-left:-100px;
+        width:200px;
+        height:80px;
+        font:"微软雅黑" 14px yellow;
+        background-color: purple;
+        border:1px solid yellow;
+        border-radius:5px;
+        text-align:center;
+    }
+    #rectangle p:first-child{
+        color:yellow;
+        display:inline-block;
+        vertical-align: middle;
+    }
+    #rectangle div:nth-child(2){
+        position:absolute;
+        top:80px;
+        left:50%;
+        margin-left:-30px;
+        width:0;
+        height:0;
+        border-width:30px;
+        border-style: solid;
+        border-color:yellow transparent transparent transparent;}
+
+    #rectangle div div{
+        position:absolute;
+        top:-30px;
+        left:-29px;
+        width:0;
+        height:0;
+        border-width:29px;
+        border-style: solid;
+        border-color:purple transparent transparent transparent;
+    }
+    /*设置图片定位*/
+    figure{
+        position:absolute;
+        left:0;
+        right:0;
+        margin: 0 auto;
+        top:250px;
+        width:500px;
+        height:500px;
+        overflow:hidden;
+        /* border:1px solid red; */
+    }
+    img{
+        width:500px;
+        height:500px;
+    }
+    figure div{
+        position:absolute;
+        bottom:-25px;
+        width:500px;
+        height:25px;
+        margin:0;
+        background-color: red;
+        color:white;
+    }
+   /*设置表单*/ 
+    #sheet{
+        overflow:hidden;
+        border:1px solid gray;
+        padding:10px;
+        margin:10px;
+    }
+    label{
+        float:left;
+        margin-right:10px;
+        width:50px;
+        /*设置垂直居中*/
+        line-height:40px;
+        height:40px;
+        /*设置靠右*/
+        text-align:right;
+        /* border:1px solid; */
+    }
+    p input:not(#submit){
+        float:left;
+        height:16px;
+        margin:11px 0px;
+        border:1px solid silver;
+    }
+    #tel,#psw{
+        width:200px;
+    }
+    #verify-code{
+        width:90px;
+    }
+    #submit{
+        margin:5px;
+        margin-left:10px;
+        padding:0;
+        width:100px;
+        height:30px;
+    }
+    /*实现形状*/
+    .fig{
+        position:relative;
+        width:152px;
+        height:152px;
+        margin:10px;
+        border:1px solid silver;
+    }
+    /*形状1*/
+    #fig1 div:first-child{
+        width:150px;
+        height:150px;
+        border-radius: 75px;
+        border:1px solid blue;
+    }
+    #fig1 div:nth-child(2){
+        position:absolute;
+        top:0;
+        left:0;
+        width:75px;
+        height:75px;
+        border-radius: 0 0 75px 0;
+        border-width:1px;
+        border-style:solid;
+        /*设弧线*/
+        border-color: transparent blue blue transparent;
+    }
+    #fig1 div:nth-child(3){
+        position:absolute;
+        top:0;
+        left:75px;
+        width:75px;
+        height:75px;
+        border-radius: 0 0 0 75px;
+        border-width:1px;
+        border-style:solid;
+        /*设弧线*/
+        border-color: transparent transparent blue blue;
+    }
+    #fig1 div:nth-child(4){
+        position:absolute;
+        top:75px;
+        left:0;
+        width:75px;
+        height:75px;
+        border-radius: 0 75px 0 0;
+        border-width:1px;
+        border-style:solid;
+        /*设弧线*/
+        border-color:  blue blue transparent transparent;
+    }
+    #fig1 div:nth-child(5){
+        position:absolute;
+        top:75px;
+        left:75px;
+        width:75px;
+        height:75px;
+        border-radius: 75px 0 0 0;
+        border-width:1px;
+        border-style:solid;
+        /*设弧线*/
+        border-color: blue transparent transparent blue ;
+    }
+   /*形状2*/
+   #fig2 div:first-child{
+       position: absolute;
+       top:0;
+       left:0;
+       width:75px;
+       height:75px;
+       border-radius: 75px 75px 0 75px;
+       border:1px solid blue;
+   }
+   #fig2 div:nth-child(2){
+       position: absolute;
+       top:0;
+       left:75px;
+       width:75px;
+       height:75px;
+       border-radius: 75px 75px 75px 0;
+       border:1px solid blue;
+   }
+   #fig2 div:nth-child(3){
+       position: absolute;
+       top:75px;
+       left:75px;
+       width:75px;
+       height:75px;
+       border-radius: 0 75px 75px 75px;
+       border:1px solid blue;
+   }
+   #fig2 div:nth-child(4){
+       position: absolute;
+       top:75px;
+       left:0;
+       width:75px;
+       height:75px;
+       border-radius: 75px 0 75px 75px;
+       border:1px solid blue;
+   }
+   
+    </style>
+    <script src="jquery-1.12.0.min.js" type="text/javascript"></script>
+    <script src="jquery.color.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function(){
+        //移到图片上，图片变淡,底部文字弹出
+        var flag = 0;
+        $("img").hover(function(){
+            $(this).fadeTo(200,0.6);
+            if(flag == 0){
+                $("#caption").animate({"bottom":""},300);
+                flag=1;
+            }
+        },function(){
+            $(this).fadeTo(200,1);
+            if(flag == 1){
+                $("#caption").animate({"bottom":"-25px"},300);
+                flag=0;
+            }
+        })
+    })
+    </script>
+</head>
+<body>
+    <div id="page-left">
+            <!--接下来构造对话框-->
+        <div id="rectangle">
+            <p>我像只虞儿在你的荷棠<br/>只为和你守候那皎白月光</p>
+            <div><div></div></div>
+        </div>
+    <!--下面是图片-->
+        <figure>
+                <img src="pics/IMG3.jpg" alt=""/>
+                <div id="caption">学习使我快乐！！！</div>
+        </figure>
+    </div>
+<!--右半边-->
+    <div id="page-right">
+        <div id="sheet">
+            <p><label for="tel">手机号</label><input type="text" id="tel" value="输入手机号"></p>
+            <p><label for="psw">密码</label><input type="password" id="tel" value="输入密码"></p>
+            <p><label for="verify-code">验证码</label><input type="text" id="verify-code" value="验证码"><input type="button" id="submit" value="获取短信验证码"></p> 
+        </div>
+        <!--图形-->
+        <div id="fig1" class="fig">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div  id="fig2" class="fig">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</body>
+</html>
+\ No newline at end of file
